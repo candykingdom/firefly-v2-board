@@ -234,3 +234,33 @@ adafruit_itsybitsy_m0.build.vid=0x239A
 adafruit_itsybitsy_m0.build.pid=0x800F
 adafruit_itsybitsy_m0.bootloader.tool=openocd
 adafruit_itsybitsy_m0.bootloader.file=itsybitsy/samd21_sam_ba.bin
+
+
+# Custom
+firefly2_custom.name=Firefly v2 (SAMD21E17A)
+firefly2_custom.vid.0=0x03EB
+firefly2_custom.pid.0=0x2402
+firefly2_custom.upload.tool=bossac
+firefly2_custom.upload.protocol=sam-ba
+firefly2_custom.upload.maximum_size=131072
+firefly2_custom.upload.use_1200bps_touch=true
+firefly2_custom.upload.wait_for_upload_port=true
+firefly2_custom.upload.native_usb=true
+firefly2_custom.build.mcu=cortex-m0plus
+firefly2_custom.build.f_cpu=48000000L
+firefly2_custom.build.usb_product="Firefly v2"
+firefly2_custom.build.usb_manufacturer="Candy Kingdom"
+firefly2_custom.build.board=FIREFLY_V2
+firefly2_custom.build.core=arduino
+#firefly2_custom.build.extra_flags=-DCRYSTALLESS -DADAFRUIT_TRINKET_M0 -D__SAMD21E17A__ {build.usb_flags}
+firefly2_custom.build.extra_flags=-DCRYSTALLESS -D__SAMD21E17A__ {build.usb_flags}
+firefly2_custom.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+firefly2_custom.build.openocdscript=openocd_scripts/arduino_zero.cfg
+firefly2_custom.build.variant=firefly_v2
+firefly2_custom.build.variant_system_lib=
+firefly2_custom.build.vid=0x03EB
+firefly2_custom.build.pid=0x2402
+firefly2_custom.bootloader.tool=openocd
+# TODO
+firefly2_custom.bootloader.file=trinket/bootloader_uf2.bin
+
