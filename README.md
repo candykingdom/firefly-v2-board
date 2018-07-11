@@ -2,6 +2,14 @@
 
 This repo holds board definitions for boards designed by Candy Kingdom.
 
+To install this, open Arduino | Preferences and set `Additional Boards Manager
+URLs` to:
+
+```
+https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
+https://candykingdom.github.io/firefly-v2-board/package_index.json
+```
+
 ## License and credits
 
 This repo was originally developed by Arduino LLC in collaboration with Atmel.

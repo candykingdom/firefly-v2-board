@@ -1,0 +1,80 @@
+{
+  "packages": [
+    {
+      "websiteURL": "https://candykingdom.github.io",
+      "tools": [
+        {
+          "systems": [
+            {
+              "host": "i386-apple-darwin11",
+              "checksum": "MD5:603bcce8e59683ac27054b3197a53254",
+              "size": "96372129",
+              "archiveFileName": "gcc-arm-none-eabi-5_2-2015q4-20151219-mac.tar.bz2",
+              "url": "https://github.com/adafruit/Adafruit_nRF52_Arduino/releases/download/gcc-5_2-2015q4/gcc-arm-none-eabi-5_2-2015q4-20151219-mac.tar.bz2"
+            },
+            {
+              "host": "x86_64-pc-linux-gnu",
+              "checksum": "MD5:f88caac80b4444a17344f57ccb760b90",
+              "size": "92811866",
+              "archiveFileName": "gcc-arm-none-eabi-5_2-2015q4-20151219-linux.tar.bz2",
+              "url": "https://github.com/adafruit/Adafruit_nRF52_Arduino/releases/download/gcc-5_2-2015q4/gcc-arm-none-eabi-5_2-2015q4-20151219-linux.tar.bz2"
+            }
+          ],
+          "name": "bossac",
+          "version": "1.7.0-candykingdom"
+        }
+      ],
+      "name": "Candy Kingdom Firefly",
+      "email": "no-reply@dev.null",
+      "help": {
+        "online": "https://dev.null"
+      },
+      "maintainer": "CandyKingdom",
+      "platforms": [
+        {
+          "boards": [
+            {
+              "name": "Firefly V2"
+            },
+            {
+              "name": "Firefly DevBoard"
+            }
+          ],
+          "architecture": "samd",
+          "name": "Firefly boards",
+          "category": "Firefly",
+          "version": "0.0.1",
+          "archiveFileName": "adafruit-samd-1.0.5.tar.bz2",
+          "checksum": "SHA-256:1669bc0741c764d195785080a2f98b265a383558fc37f71704db68b0b4dcf6f6",
+          "help": {
+            "online": "https://dev.null"
+          },
+          "url": "Replace this with a download link for a cut version of our package.",
+          "toolsDependencies": [
+            {
+              "name": "arm-none-eabi-gcc",
+              "packager": "arduino",
+              "version": "4.8.3-2014q1"
+            },
+            {
+              "name": "bossac",
+              "packager": "CandyKingdom",
+              "version": "1.7.0-candykingdom"
+            },
+            {
+              "name": "openocd",
+              "packager": "arduino",
+              "version": "0.9.0-arduino"
+            },
+            {
+              "name": "CMSIS",
+              "packager": "arduino",
+              "version": "4.0.0-atmel"
+            }
+          ],
+          "size": "346935"
+        }
+      ]
+    }
+  ]
+}
