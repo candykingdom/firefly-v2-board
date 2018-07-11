@@ -133,11 +133,11 @@ tools.avrdude_remote.upload.pattern="openocd --version 2>&1 | grep 2016 && if op
 #
 # TODO: replaced with Mattairtech so this supports the SAMD21E17A
 #tools.bossac.path={runtime.tools.bossac-1.7.0.path}
-tools.bossac.path=~/.arduino15/packages/MattairTech_Arduino/tools/bossac/1.7.0-mattairtech-1
+tools.bossac.path={runtime.platform.path}/tools
 tools.bossac.cmd=bossac
 tools.bossac.cmd.windows=bossac.exe
-#tools.bossac.cmd.linux=bossac_linux
-#tools.bossac.cmd.macosx=bossac_osx
+tools.bossac.cmd.linux=bossac_linux
+tools.bossac.cmd.macosx=bossac_osx
 
 tools.bossac.upload.params.verbose=-i -d
 tools.bossac.upload.params.quiet=

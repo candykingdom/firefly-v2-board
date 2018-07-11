@@ -264,3 +264,30 @@ firefly2_custom.bootloader.tool=openocd
 # TODO
 firefly2_custom.bootloader.file=trinket/bootloader_uf2.bin
 
+rfboard.name=rfboard (SAMD21E17A)
+rfboard.vid.0=0x03EB
+rfboard.pid.0=0x2402
+rfboard.upload.tool=bossac
+rfboard.upload.protocol=sam-ba
+rfboard.upload.maximum_size=131072
+rfboard.upload.use_1200bps_touch=true
+rfboard.upload.wait_for_upload_port=true
+rfboard.upload.native_usb=true
+rfboard.build.mcu=cortex-m0plus
+rfboard.build.f_cpu=48000000L
+rfboard.build.usb_product="rfboard"
+rfboard.build.usb_manufacturer="Candy Kingdom"
+rfboard.build.board=RFBOARD
+rfboard.build.core=arduino
+#rfboard.build.extra_flags=-DCRYSTALLESS -DADAFRUIT_TRINKET_M0 -D__SAMD21E17A__ {build.usb_flags}
+rfboard.build.extra_flags=-DCRYSTALLESS -D__SAMD21E17A__ {build.usb_flags}
+rfboard.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+rfboard.build.openocdscript=openocd_scripts/arduino_zero.cfg
+rfboard.build.variant=rfboard
+rfboard.build.variant_system_lib=
+rfboard.build.vid=0x03EB
+rfboard.build.pid=0x2402
+rfboard.bootloader.tool=openocd
+# TODO
+rfboard.bootloader.file=trinket/bootloader_uf2.bin
+
