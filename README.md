@@ -2,6 +2,12 @@
 
 This repo holds board definitions for boards designed by Candy Kingdom.
 
+Open ~/.arduino15/preferences.txt and add to the top.
+
+```
+allow_insecure_packages=true
+```
+
 To install this, open Arduino | Preferences and set `Additional Boards Manager
 URLs` to:
 
