@@ -12,7 +12,7 @@ To install this, open Arduino | Preferences and set `Additional Boards Manager
 URLs` to:
 
 ```
-https://candykingdom.github.io/firefly-v2-board/candy_kingdom_package_index.json
+https://candykingdom.github.io/firefly-v2-board/package_candykingdom_index.json
 ```
 
 Install the `Arduino SAMD Boards` and `Candy Kingdom Firefly` board definitions
