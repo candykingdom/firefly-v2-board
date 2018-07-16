@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:ademuri/RFM69.git
+	branch = master
+	commit = 06478a127bc0c673417952fc878dbdc1e88dd69b
+	parent = 91ff248a1f96356723178c2201b36bf4a1cb8394
+	cmdver = 0.3.1
