@@ -53,8 +53,8 @@ extern "C"
  *----------------------------------------------------------------------------*/
 
 // Number of pins defined in PinDescription array
-#define PINS_COUNT           (10u)
-#define NUM_DIGITAL_PINS     (9u)
+#define PINS_COUNT           (11u)
+#define NUM_DIGITAL_PINS     (10u)
 #define NUM_ANALOG_INPUTS    (1u)
 #define NUM_ANALOG_OUTPUTS   (0u)
 #define analogInputToDigitalPin(p)  ((p < 5u) ? (p) + PIN_A0 : -1)
@@ -91,7 +91,7 @@ extern "C"
 /*
  * Analog pins
  */
-#define PIN_A0               (14ul)
+#define PIN_A0               (7ul)
 /*#define PIN_A1               (PIN_A0 + 1)
 #define PIN_A2               (PIN_A0 + 2)
 #define PIN_A3               (PIN_A0 + 3)
@@ -154,8 +154,8 @@ static const uint8_t SCL = PIN_WIRE_SCL;
  */
 // TODO: can we remove this?
 #define PIN_USB_HOST_ENABLE (7ul)
-#define PIN_USB_DM          (10ul)
-#define PIN_USB_DP          (11ul)
+#define PIN_USB_DM          (8ul)
+#define PIN_USB_DP          (9ul)
 
 #ifdef __cplusplus
 }
