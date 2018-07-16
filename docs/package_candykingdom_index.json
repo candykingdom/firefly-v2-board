@@ -43,13 +43,14 @@
           "architecture": "samd",
           "name": "Firefly boards",
           "category": "Firefly",
-          "version": "0.0.1",
-          "archiveFileName": "candykingdom-firefly-0.0.1.tar.gz",
-          "checksum": "SHA-256:2c4ca5d4f182dc3cca0f4c3cf163c3842cea4cfe501498b1781100b44557923e",
+          "version": "0.0.2",
+          "archiveFileName": "candykingdom-firefly-0.0.2.tar.gz",
+          "checksum": "SHA-256:2d7ee9ccad71c2526792830f980cd2ee132cec68addb99faadee85628197a496",
+          "size": "976620",
           "help": {
             "online": "https://dev.null"
           },
-          "url": "https://github.com/candykingdom/firefly-v2-board/archive/v0.0.1.tar.gz",
+          "url": "https://github.com/candykingdom/firefly-v2-board/archive/v0.0.2.tar.gz",
           "toolsDependencies": [
             {
               "name": "arm-none-eabi-gcc",
@@ -71,8 +72,7 @@
               "packager": "arduino",
               "version": "4.0.0-atmel"
             }
-          ],
-          "size": "282813"
+          ]
         }
       ]
     }
