@@ -4,8 +4,8 @@
 ; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
 ;
 [subrepo]
-	remote = https://github.com/FastLED/FastLED.git
+	remote = git@github.com:candykingdom/FastLED.git
 	branch = master
-	commit = 1b44dfa547035e50e3706e0f43c73fa6c460fb17
-	parent = 45e3e0691a4ad5d385e5ea54395e7a5e9c66aafc
+	commit = 6644d780fb86794c6945eaa6570f3256f2d5e8f3
+	parent = 8633f295640a9c36d3d3c00a47cd5919acc3f019
 	cmdver = 0.3.1
