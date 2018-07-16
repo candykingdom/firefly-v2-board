@@ -163,6 +163,20 @@ _DEFPIN_ARM( 3, 0, 7); _DEFPIN_ARM( 4, 0, 6);
 
 #define HAS_HARDWARE_PIN_SUPPORT 1
 
+#elif defined(CANDYKINGDOM_FIREFLY_V2)
+
+#define MAX_PIN 6
+_DEFPIN_ARM( 6, 0, 7);
+
+#define HAS_HARDWARE_PIN_SUPPORT 1
+
+#elif defined(CANDYKINGDOM_FIREFLY_RFBOARD)
+
+#define MAX_PIN 6
+_DEFPIN_ARM( 6, 0, 7);
+
+#define HAS_HARDWARE_PIN_SUPPORT 1
+
 #endif
 
 
