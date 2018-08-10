@@ -52,3 +52,30 @@ rfboard.bootloader.tool=openocd
 # TODO
 rfboard.bootloader.file=trinket/bootloader_uf2.bin
 
+# Battery protector v2
+bpv2.name=Battery protector v2 (SAMD21E17A)
+bpv2.vid.0=0x03EB
+bpv2.pid.0=0x2402
+bpv2.upload.tool=bossac
+bpv2.upload.protocol=sam-ba
+bpv2.upload.maximum_size=131072
+bpv2.upload.use_1200bps_touch=true
+bpv2.upload.wait_for_upload_port=true
+bpv2.upload.native_usb=true
+bpv2.build.mcu=cortex-m0plus
+bpv2.build.f_cpu=48000000L
+bpv2.build.usb_product="battery-protector-v2"
+bpv2.build.usb_manufacturer="Candy Kingdom"
+bpv2.build.board=BATTERY_PROTECTOR_V2
+bpv2.build.core=arduino
+bpv2.build.extra_flags=-DCRYSTALLESS -D__SAMD21E17A__ -DCANDYKINGDOM_FIREFLY_BATTERY_PROTECTOR_V2 {build.usb_flags}
+bpv2.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+bpv2.build.openocdscript=openocd_scripts/arduino_zero.cfg
+bpv2.build.variant=rfboard
+bpv2.build.variant_system_lib=
+bpv2.build.vid=0x03EB
+bpv2.build.pid=0x2402
+bpv2.bootloader.tool=openocd
+# TODO
+bpv2.bootloader.file=trinket/bootloader_uf2.bin
+
