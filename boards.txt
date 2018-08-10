@@ -53,6 +53,34 @@ rfboard.bootloader.tool=openocd
 rfboard.bootloader.file=trinket/bootloader_uf2.bin
 
 # Battery protector v2
+hvacv2.name=HVAC v2 (SAMD21E17A)
+hvacv2.vid.0=0x03EB
+hvacv2.pid.0=0x2402
+hvacv2.upload.tool=bossac
+hvacv2.upload.protocol=sam-ba
+hvacv2.upload.maximum_size=131072
+hvacv2.upload.use_1200bps_touch=true
+hvacv2.upload.wait_for_upload_port=true
+hvacv2.upload.native_usb=true
+hvacv2.build.mcu=cortex-m0plus
+hvacv2.build.f_cpu=48000000L
+hvacv2.build.usb_product="hvac-v2"
+hvacv2.build.usb_manufacturer="Candy Kingdom"
+hvacv2.build.board=HVAC_V2
+hvacv2.build.core=arduino
+hvacv2.build.extra_flags=-DCRYSTALLESS -D__SAMD21E17A__ -DCANDYKINGDOM_FIREFLY_HVAC_V2 {build.usb_flags}
+hvacv2.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+hvacv2.build.openocdscript=openocd_scripts/arduino_zero.cfg
+hvacv2.build.variant=rfboard
+hvacv2.build.variant_system_lib=
+hvacv2.build.vid=0x03EB
+hvacv2.build.pid=0x2402
+hvacv2.bootloader.tool=openocd
+# TODO
+hvacv2.bootloader.file=trinket/bootloader_uf2.bin
+
+
+# Battery protector v2
 bpv2.name=Battery protector v2 (SAMD21E17A)
 bpv2.vid.0=0x03EB
 bpv2.pid.0=0x2402
