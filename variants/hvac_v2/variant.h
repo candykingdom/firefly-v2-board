@@ -52,11 +52,11 @@ extern "C" {
  *----------------------------------------------------------------------------*/
 
 // Number of pins defined in PinDescription array
-#define PINS_COUNT (13u)
-#define NUM_DIGITAL_PINS (10u)
+#define PINS_COUNT (14u)
+#define NUM_DIGITAL_PINS (14u)
 #define NUM_ANALOG_INPUTS (3u)
 #define NUM_ANALOG_OUTPUTS (0u)
-#define analogInputToDigitalPin(p) ((p < 5u) ? (p) + PIN_A0 : -1)
+#define analogInputToDigitalPin(p) ((p < 3u) ? (p) + PIN_A0 : -1)
 
 #define digitalPinToPort(P) (&(PORT->Group[g_APinDescription[P].ulPort]))
 #define digitalPinToBitMask(P) (1 << g_APinDescription[P].ulPin)
@@ -121,11 +121,11 @@ static const uint8_t DAC0 = PIN_DAC0;*/
 /*
  * SPI Interfaces
  */
-#define SPI_INTERFACES_COUNT 1 // shared with I2C/UART (can't do both)
+#define SPI_INTERFACES_COUNT 0 // shared with I2C/UART (can't do both)
 
 // Explanation at
 // https://learn.adafruit.com/using-atsamd21-sercom-to-add-more-spi-i2c-serial-ports/creating-a-new-spi
-#define PIN_SPI_MISO (3u)
+/*#define PIN_SPI_MISO (3u)
 #define PIN_SPI_MOSI (1u)
 #define PIN_SPI_SCK (2u)
 #define PERIPH_SPI sercom0
@@ -136,26 +136,26 @@ static const uint8_t SS = 4; // SERCOM0 last PAD is present on 4 but HW SS isn't
                              // used. Set here only for reference.
 static const uint8_t MOSI = PIN_SPI_MOSI;
 static const uint8_t MISO = PIN_SPI_MISO;
-static const uint8_t SCK = PIN_SPI_SCK;
+static const uint8_t SCK = PIN_SPI_SCK;*/
 
 /*
  * Wire Interfaces
  */
-#define WIRE_INTERFACES_COUNT 1
+#define WIRE_INTERFACES_COUNT 0
 
-#define PIN_WIRE_SDA (0u)
+/*#define PIN_WIRE_SDA (0u)
 #define PIN_WIRE_SCL (2u)
 #define PERIPH_WIRE sercom2
 #define WIRE_IT_HANDLER SERCOM2_Handler
 
 static const uint8_t SDA = PIN_WIRE_SDA;
-static const uint8_t SCL = PIN_WIRE_SCL;
+static const uint8_t SCL = PIN_WIRE_SCL;*/
 
 /*
  * USB
  */
 // TODO: can we remove this?
-#define PIN_USB_HOST_ENABLE (7ul)
+#define PIN_USB_HOST_ENABLE (13ul)
 #define PIN_USB_DM (0ul)
 #define PIN_USB_DP (1ul)
 
