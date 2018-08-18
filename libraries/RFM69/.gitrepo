@@ -6,6 +6,6 @@
 [subrepo]
 	remote = git@github.com:ademuri/RFM69.git
 	branch = master
-	commit = 06478a127bc0c673417952fc878dbdc1e88dd69b
-	parent = 91ff248a1f96356723178c2201b36bf4a1cb8394
+	commit = fe5202bf700daca117c437ca7d0c0b45d6f30054
+	parent = 661aa3f6c947faf37dc26180f805f37893b8046f
 	cmdver = 0.3.1
