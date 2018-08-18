@@ -177,6 +177,13 @@ _DEFPIN_ARM( 6, 0, 7);
 
 #define HAS_HARDWARE_PIN_SUPPORT 1
 
+#elif defined(CANDYKINGDOM_FIREFLY_HVAC_V2)
+
+#define MAX_PIN 2
+_DEFPIN_ARM( 2, 0, 7);
+
+#define HAS_HARDWARE_PIN_SUPPORT 0
+
 #endif
 
 

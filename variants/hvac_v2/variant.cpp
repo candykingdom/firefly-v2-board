@@ -76,8 +76,7 @@ const PinDescription g_APinDescription[] = {
      NOT_ON_TIMER, EXTERNAL_INT_NONE}, // USB/DP - GPIO #7
 
     // 2: Neopixel control
-    {PORTA, 7, PIO_DIGITAL, (PIN_ATTR_DIGITAL), No_ADC_Channel, NOT_ON_PWM,
-     NOT_ON_TIMER, EXTERNAL_INT_NONE},
+    {PORTA, 7, PIO_DIGITAL, (PIN_ATTR_DIGITAL), No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE},
 
     // 3: Analog in VBATT voltage divider
     {PORTA, 4, PIO_ANALOG, PIN_ATTR_ANALOG, ADC_Channel0, NOT_ON_PWM,
