@@ -579,6 +579,7 @@ void analogWrite(uint32_t pin, uint32_t value)
 	  
 #else
 
+  // TODO: allow setting the PWM frequency. We need this for e.g. using the correct PWM frequency for fans.
   if ((attr & PIN_ATTR_PWM) == PIN_ATTR_PWM)
 	  {
 	  value = mapResolution(value, _writeResolution, 16);
