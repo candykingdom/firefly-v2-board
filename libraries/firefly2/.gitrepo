@@ -6,6 +6,6 @@
 [subrepo]
 	remote = https://ademuri@code.andrewzallen.com/hardware/firefly2
 	branch = master
-	commit = 3c6404324d68f0173bbc65f3cad517cd3dcac6bd
-	parent = 0784183e1976544c881fe2e570aa7f71b011f179
+	commit = 9820bcdff165d4d3bc67d2e20872c05183f3710a
+	parent = 461cf977060fa5043f6112a78a9b510bfd05d49b
 	cmdver = 0.3.1
