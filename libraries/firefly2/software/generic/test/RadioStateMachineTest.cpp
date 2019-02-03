@@ -51,7 +51,7 @@ TEST(RadioStateMachine, sendsHeartbeats) {
   ASSERT_NE(packet, nullptr);
   EXPECT_EQ(packet->type, HEARTBEAT);
 
-  advanceMillis(RadioStateMachine::kMasterHeartbeatInterval);
+  advanceMillis(RadioStateMachine::kMasterHeartbeatInterval + 1);
   stateMachine->Tick();
   packet = radio.getSentPacket();
   ASSERT_NE(packet, nullptr);
@@ -145,4 +145,50 @@ TEST(RadioStateMachine, doesElectionAndBecomesMaster) {
   RadioPacket *receivedPacket = radio.getSentPacket();
   EXPECT_NE(receivedPacket, nullptr);
   EXPECT_EQ(receivedPacket->type, CLAIM_MASTER);
+}
+
+TEST(RadioStateMachine, returnNetworkMillisForNoOffset) {
+  FakeRadio radio;
+  NetworkManager *networkManager = new NetworkManager(&radio);
+  RadioStateMachine *stateMachine = new RadioStateMachine(networkManager);
+
+  setMillis(0);
+  EXPECT_EQ(stateMachine->GetNetworkMillis(), 0);
+
+  setMillis(12345);
+  EXPECT_EQ(stateMachine->GetNetworkMillis(), 12345);
+}
+
+TEST(RadioStateMachine, slaveGetsTimeFromNetwork) {
+  setMillis(0);
+  FakeRadio radio;
+  NetworkManager *networkManager = new NetworkManager(&radio);
+  RadioStateMachine *stateMachine = new RadioStateMachine(networkManager);
+
+  RadioPacket packet;
+  packet.writeHeartbeat(10000);
+  // The random ID for master election is in the range [2, 0xFFFF)
+  radio.setReceivedPacket(&packet);
+  stateMachine->Tick();
+  EXPECT_EQ(stateMachine->GetNetworkMillis(), 10000);
+
+  setMillis(2000000);
+  EXPECT_EQ(stateMachine->GetNetworkMillis(), 2010000);
+}
+
+TEST(RadioStateMachine, slaveGetsTimeFromNetwork_negativeOffset) {
+  setMillis(10000);
+  FakeRadio radio;
+  NetworkManager *networkManager = new NetworkManager(&radio);
+  RadioStateMachine *stateMachine = new RadioStateMachine(networkManager);
+
+  RadioPacket packet;
+  packet.writeHeartbeat(0);
+  // The random ID for master election is in the range [2, 0xFFFF)
+  radio.setReceivedPacket(&packet);
+  stateMachine->Tick();
+  EXPECT_EQ(stateMachine->GetNetworkMillis(), 0);
+
+  setMillis(2000000);
+  EXPECT_EQ(stateMachine->GetNetworkMillis(), 1990000);
 }

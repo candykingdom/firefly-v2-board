@@ -1,6 +1,6 @@
 #include "RFM69Radio.hpp"
-#include "Debug.hpp"
 #include <RFM69.h>
+#include "Debug.hpp"
 
 RFM69Radio::RFM69Radio() {
   radio = new RFM69(SS, /* DIO */ 5, /* is HW */ false, /* SPIClass */ &SPI);
@@ -8,6 +8,9 @@ RFM69Radio::RFM69Radio() {
     // TODO(achew): Actually do this.
     debug_printf("Unable to initialize RFM69. Make this be better");
   }
+  // TODO: set this higher when hardware issues are resolved. When this is set
+  // above 5dBm, voltage regulator is unstable?
+  radio->setPowerLevel(20);
 
   radio->promiscuous(true);
 }
@@ -22,7 +25,7 @@ bool RFM69Radio::readPacket(RadioPacket &packet) {
     // memcopy is incompatible. If you wanna copy data off of the volatile
     // section then you have to hand roll it yourself.
     for (byte i = kFrontPacketPadding; i < radio->DATALEN; i++) {
-      packet.data[i] = radio->DATA[i + kFrontPacketPadding];
+      packet.data[i - kFrontPacketPadding] = radio->DATA[i];
     }
     return true;
   }
@@ -32,8 +35,8 @@ bool RFM69Radio::readPacket(RadioPacket &packet) {
 void RFM69Radio::sendPacket(RadioPacket &packet) {
   static uint8_t buffer[kMaxPacketSize];
 
-  buffer[0] = packet.packetId >> 8;     // Take the top 8 bits.
-  buffer[1] = packet.packetId & 0x00ff; // Mask off the top 8 bits.
+  buffer[0] = packet.packetId >> 8;      // Take the top 8 bits.
+  buffer[1] = packet.packetId & 0x00ff;  // Mask off the top 8 bits.
   buffer[2] = packet.type;
 
   // Now that we have consumed the first 3 bytes of data, memcpy past the

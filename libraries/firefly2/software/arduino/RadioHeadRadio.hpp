@@ -1,7 +1,7 @@
-#ifndef __RFM69_RADIO_H__
-#define __RFM69_RADIO_H__
+#ifndef __RADIO_HEAD_RADIO_H__
+#define __RADIO_HEAD_RADIO_H__
 
-#include <RFM69.h>
+#include <RH_RF69.h>
 #include "Radio.hpp"
 
 const int kMaxFifoSizePacketSize = 64;
@@ -9,19 +9,16 @@ const int kRadioOverhead = 3;
 const int kMaxPacketSize = kMaxFifoSizePacketSize - kRadioOverhead;
 const int kFrontPacketPadding = 3;
 
-const int kNodeId = 57;
-const int kNetworkId = 137;
-
-class RFM69Radio : public Radio {
+class RadioHeadRadio : public Radio {
  public:
-  RFM69Radio();
+  RadioHeadRadio();
 
   // Overrides
   bool readPacket(RadioPacket &packet) override;
   void sendPacket(RadioPacket &packet) override;
 
  private:
-  RFM69 *radio;
+  RH_RF69 radio = RH_RF69(4, 5);
 };
 
 #endif
