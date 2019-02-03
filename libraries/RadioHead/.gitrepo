@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/adafruit/RadioHead
+	branch = master
+	commit = 1a8b1c21fbc420e24ac070e86cb7a407dc0e1770
+	parent = 49278b7c4dbb81f27b9bad1a5bac9de3b0dae978
+	cmdver = 0.3.1
