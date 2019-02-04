@@ -6,6 +6,6 @@
 [subrepo]
 	remote = git@github.com:candykingdom/FastLED.git
 	branch = master
-	commit = 6644d780fb86794c6945eaa6570f3256f2d5e8f3
-	parent = 8633f295640a9c36d3d3c00a47cd5919acc3f019
+	commit = 45113ffc0302969b49500868733227060c0b3445
+	parent = 7444c1c74ffcf8637b6a3375032b19bb60d9395b
 	cmdver = 0.3.1
