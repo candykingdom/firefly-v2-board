@@ -139,7 +139,8 @@ tools.bossac.cmd.windows=bossac.exe
 tools.bossac.cmd.linux=bossac_linux
 tools.bossac.cmd.macosx=bossac_osx
 
-tools.bossac.upload.params.verbose=-i -d
+# NOTE(ademuri): removed '-d' flag since seeing the bytes written isn't helpful
+tools.bossac.upload.params.verbose=-i
 tools.bossac.upload.params.quiet=
 tools.bossac.upload.pattern="{path}/{cmd}" {upload.verbose} --port={serial.port.file} -U {upload.native_usb} -i -e -w -v "{build.path}/{build.project_name}.bin" -R
 
