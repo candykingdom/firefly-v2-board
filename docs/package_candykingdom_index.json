@@ -6,18 +6,18 @@
         {
           "systems": [
             {
-              "host": "i386-apple-darwin11",
-              "checksum": "sha256:eb740138c5e60a14471e5e4d9cd984745f08003c33f238b0765f81b6de4c1027",
-              "size": "34819",
-              "archiveFileName": "bossac_osx.tar.bz2",
+              "host": "x86_64-pc-linux-gnu",
+              "checksum": "SHA-256:6f40a526049e950a7f4e9780d52de4fbc2aec6f32e586af1c4643d2c24723fca",
+              "size": "34852",
+              "archiveFileName": "bossac_linux.tar.bz2",
               "url": "https://candykingdom.github.io/firefly-v2-board/tools/bossac_linux.tar.bz2"
             },
             {
-              "host": "x86_64-pc-linux-gnu",
-              "checksum": "sha256:eb740138c5e60a14471e5e4d9cd984745f08003c33f238b0765f81b6de4c1027",
-              "size": "34819",
-              "archiveFileName": "bossac_linux.tar.bz2",
-              "url": "https://candykingdom.github.io/firefly-v2-board/tools/bossac_linux.tar.bz2"
+              "host": "x86_64-apple-darwin",
+              "checksum": "SHA-256:c84dcfa5be9edc4146fb754950b9b1e72c55f7277c55080b859252cc05366f88",
+              "size": "82925",
+              "archiveFileName": "bossac_osx.tar.bz2",
+              "url": "https://candykingdom.github.io/firefly-v2-board/tools/bossac_osx.tar.bz2"
             }
           ],
           "name": "bossac",
@@ -43,14 +43,14 @@
           "architecture": "samd",
           "name": "Firefly boards",
           "category": "Firefly",
-          "version": "0.0.2",
-          "archiveFileName": "candykingdom-firefly-0.0.2.tar.gz",
-          "checksum": "SHA-256:2d7ee9ccad71c2526792830f980cd2ee132cec68addb99faadee85628197a496",
-          "size": "976620",
+          "version": "0.0.3",
+          "archiveFileName": "candykingdom-firefly-0.0.3.tar.gz",
+          "checksum": "SHA-256:6302911548205518b18bcbb53e46329856b635bf6277e5e0082736d17014a109",
+          "size": "6231113",
           "help": {
             "online": "https://dev.null"
           },
-          "url": "https://github.com/candykingdom/firefly-v2-board/archive/v0.0.2.tar.gz",
+          "url": "https://github.com/candykingdom/firefly-v2-board/archive/v0.0.3.tar.gz",
           "toolsDependencies": [
             {
               "name": "arm-none-eabi-gcc",
