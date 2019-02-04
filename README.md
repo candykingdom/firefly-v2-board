@@ -18,6 +18,14 @@ https://candykingdom.github.io/firefly-v2-board/package_candykingdom_index.json
 Install the `Arduino SAMD Boards` and `Candy Kingdom Firefly` board definitions
 using the board manager.
 
+# Hardware format documentation
+
+https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.5-3rd-party-Hardware-specification
+
+# Library format documentation
+
+https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.5:-Library-specification
+
 ## License and credits
 
 This repo was originally developed by Arduino LLC in collaboration with Atmel.

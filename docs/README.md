@@ -23,3 +23,7 @@ ls -l ${VERSION?}.tar.gz
   `package_candykingdom_index.json`
 
 - Commit changes and push
+
+# File format documentation
+
+https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.6.x-package_index.json-format-specification
