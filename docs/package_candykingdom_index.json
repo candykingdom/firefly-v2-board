@@ -7,8 +7,8 @@
           "systems": [
             {
               "host": "x86_64-pc-linux-gnu",
-              "checksum": "SHA-256:6f40a526049e950a7f4e9780d52de4fbc2aec6f32e586af1c4643d2c24723fca",
-              "size": "34852",
+              "checksum": "SHA-256:ed97a94db3535541a19ae40d32ab262041471360cc63a170117afb40c9b3a46a",
+              "size": "34834",
               "archiveFileName": "bossac_linux.tar.bz2",
               "url": "https://candykingdom.github.io/firefly-v2-board/tools/bossac_linux.tar.bz2"
             },
