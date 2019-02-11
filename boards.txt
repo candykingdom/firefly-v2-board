@@ -1,7 +1,7 @@
 # Firefly v2 board
 firefly2_custom.name=Firefly v2 (SAMD21E17A)
-firefly2_custom.vid.0=0x03EB
-firefly2_custom.pid.0=0x2402
+firefly2_custom.vid.0=0xF182
+firefly2_custom.pid.0=0x8001
 firefly2_custom.upload.tool=bossac
 firefly2_custom.upload.protocol=sam-ba
 firefly2_custom.upload.maximum_size=131072
@@ -19,16 +19,16 @@ firefly2_custom.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
 firefly2_custom.build.openocdscript=openocd_scripts/arduino_zero.cfg
 firefly2_custom.build.variant=firefly_v2
 firefly2_custom.build.variant_system_lib=
-firefly2_custom.build.vid=0x03EB
-firefly2_custom.build.pid=0x2402
+firefly2_custom.build.vid=0xF182
+firefly2_custom.build.pid=0x8001
 firefly2_custom.bootloader.tool=openocd
 # TODO
 firefly2_custom.bootloader.file=trinket/bootloader_uf2.bin
 
 # RFBoard (Devboard)
 rfboard.name=rfboard (SAMD21E17A)
-rfboard.vid.0=0x03EB
-rfboard.pid.0=0x2402
+rfboard.vid.0=0xF182
+rfboard.pid.0=0x8002
 rfboard.upload.tool=bossac
 rfboard.upload.protocol=sam-ba
 rfboard.upload.maximum_size=131072
@@ -46,11 +46,38 @@ rfboard.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
 rfboard.build.openocdscript=openocd_scripts/arduino_zero.cfg
 rfboard.build.variant=rfboard
 rfboard.build.variant_system_lib=
-rfboard.build.vid=0x03EB
-rfboard.build.pid=0x2402
+rfboard.build.vid=0xF182
+rfboard.build.pid=0x8002
 rfboard.bootloader.tool=openocd
 # TODO
 rfboard.bootloader.file=trinket/bootloader_uf2.bin
+
+# RF Remote
+rf_remote.name=RF Remote (SAMD21E17A)
+rf_remote.vid.0=0xF182
+rf_remote.pid.0=0x8003
+rf_remote.upload.tool=bossac
+rf_remote.upload.protocol=sam-ba
+rf_remote.upload.maximum_size=131072
+rf_remote.upload.use_1200bps_touch=true
+rf_remote.upload.wait_for_upload_port=true
+rf_remote.upload.native_usb=true
+rf_remote.build.mcu=cortex-m0plus
+rf_remote.build.f_cpu=48000000L
+rf_remote.build.usb_product="RF Remote"
+rf_remote.build.usb_manufacturer="Candy Kingdom"
+rf_remote.build.board=RF_REMOTE
+rf_remote.build.core=arduino
+rf_remote.build.extra_flags=-DCRYSTALLESS -D__SAMD21E17A__ -DCANDYKINGDOM_FIREFLY_RF_REMOTE -DARM_MATH_CM0PLUS {build.usb_flags}
+rf_remote.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+rf_remote.build.openocdscript=openocd_scripts/arduino_zero.cfg
+rf_remote.build.variant=rf_remote
+rf_remote.build.variant_system_lib=
+rf_remote.build.vid=0xF182
+rf_remote.build.pid=0x8003
+rf_remote.bootloader.tool=openocd
+# TODO
+#rf_remote.bootloader.file=trinket/bootloader_uf2.bin
 
 # Battery protector v2
 hvacv2.name=HVAC v2 (SAMD21E17A)
