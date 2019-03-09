@@ -53,11 +53,11 @@ extern "C"
  *----------------------------------------------------------------------------*/
 
 // Number of pins defined in PinDescription array
-#define PINS_COUNT           (11u)
-#define NUM_DIGITAL_PINS     (10u)
+#define PINS_COUNT           (22u)
+#define NUM_DIGITAL_PINS     (21u)
 #define NUM_ANALOG_INPUTS    (1u)
 #define NUM_ANALOG_OUTPUTS   (0u)
-#define analogInputToDigitalPin(p)  ((p < 5u) ? (p) + PIN_A0 : -1)
+#define analogInputToDigitalPin(p)  ((p < 1u) ? (p) + PIN_A0 : -1)
 
 #define digitalPinToPort(P)        ( &(PORT->Group[g_APinDescription[P].ulPort]) )
 #define digitalPinToBitMask(P)     ( 1 << g_APinDescription[P].ulPin )
@@ -87,11 +87,12 @@ extern "C"
 // DotStar LED
 //#define INTERNAL_DS_DATA     7
 //#define INTERNAL_DS_CLK      8
+static const uint8_t WS2812_PIN = 18;
 
 /*
  * Analog pins
  */
-#define PIN_A0               (7ul)
+#define PIN_A0               (19ul)
 /*#define PIN_A1               (PIN_A0 + 1)
 #define PIN_A2               (PIN_A0 + 2)
 #define PIN_A3               (PIN_A0 + 3)
@@ -124,27 +125,31 @@ static const uint8_t DAC0 = PIN_DAC0;*/
 
 
 // Explanation at https://learn.adafruit.com/using-atsamd21-sercom-to-add-more-spi-i2c-serial-ports/creating-a-new-spi
-#define PIN_SPI_MISO         (3u)
-#define PIN_SPI_MOSI         (1u)
-#define PIN_SPI_SCK          (2u)
+#define PIN_SPI_MISO         (15u)
+#define PIN_SPI_MOSI         (13u)
+#define PIN_SPI_SCK          (14u)
 #define PERIPH_SPI           sercom0
 #define PAD_SPI_TX           SPI_PAD_0_SCK_1
 #define PAD_SPI_RX           SERCOM_RX_PAD_2
 
-static const uint8_t SS	  = 4 ;	// SERCOM0 last PAD is present on 4 but HW SS isn't used. Set here only for reference.
+// NOTE: for some reason, this gets reassigned (!)
+// Don't use it, use RADIO_SS instead.
+static const uint8_t SS	  = 16 ;	// SERCOM0 last PAD is present on 4 but HW SS isn't used. Set here only for reference.
+static const uint8_t RADIO_SS = 16;
 static const uint8_t MOSI = PIN_SPI_MOSI ;
 static const uint8_t MISO = PIN_SPI_MISO ;
 static const uint8_t SCK  = PIN_SPI_SCK ;
+static const uint8_t RADIO_DIO = 17;
 
 /*
  * Wire Interfaces
  */
 #define WIRE_INTERFACES_COUNT 1
 
-#define PIN_WIRE_SDA         (0u)
-#define PIN_WIRE_SCL         (2u)
-#define PERIPH_WIRE          sercom2
-#define WIRE_IT_HANDLER      SERCOM2_Handler
+#define PIN_WIRE_SDA         (5u)
+#define PIN_WIRE_SCL         (6u)
+#define PERIPH_WIRE          sercom3
+#define WIRE_IT_HANDLER      SERCOM3_Handler
 
 static const uint8_t SDA = PIN_WIRE_SDA;
 static const uint8_t SCL = PIN_WIRE_SCL;
@@ -153,9 +158,9 @@ static const uint8_t SCL = PIN_WIRE_SCL;
  * USB
  */
 // TODO: can we remove this?
-#define PIN_USB_HOST_ENABLE (7ul)
-#define PIN_USB_DM          (8ul)
-#define PIN_USB_DP          (9ul)
+#define PIN_USB_HOST_ENABLE (19ul)
+#define PIN_USB_DM          (20ul)
+#define PIN_USB_DP          (21ul)
 
 #ifdef __cplusplus
 }

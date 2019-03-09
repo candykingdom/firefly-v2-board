@@ -132,9 +132,11 @@ static const uint8_t DAC0 = PIN_DAC0;*/
 #define PAD_SPI_RX           SERCOM_RX_PAD_2
 
 static const uint8_t SS	  = 4 ;	// SERCOM0 last PAD is present on 4 but HW SS isn't used. Set here only for reference.
+static const uint8_t RADIO_SS = 4;
 static const uint8_t MOSI = PIN_SPI_MOSI ;
 static const uint8_t MISO = PIN_SPI_MISO ;
 static const uint8_t SCK  = PIN_SPI_SCK ;
+static const uint8_t RADIO_DIO = 17;
 
 /*
  * Wire Interfaces
