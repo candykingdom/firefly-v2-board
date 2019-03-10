@@ -43,6 +43,49 @@
           "architecture": "samd",
           "name": "Firefly boards",
           "category": "Firefly",
+          "version": "0.0.4",
+          "archiveFileName": "candykingdom-firefly-0.0.4.tar.gz",
+          "checksum": "SHA-256:f6e1a689d889ad81ac81b69cb626793943c32728bb765409acb9f70dee0a2b19",
+          "size": "6407720",
+          "help": {
+            "online": "https://dev.null"
+          },
+          "url": "https://github.com/candykingdom/firefly-v2-board/archive/v0.0.4.tar.gz",
+          "toolsDependencies": [
+            {
+              "name": "arm-none-eabi-gcc",
+              "packager": "arduino",
+              "version": "4.8.3-2014q1"
+            },
+            {
+              "name": "bossac",
+              "packager": "Candy Kingdom Firefly",
+              "version": "1.7.0-candykingdom"
+            },
+            {
+              "name": "openocd",
+              "packager": "arduino",
+              "version": "0.9.0-arduino"
+            },
+            {
+              "name": "CMSIS",
+              "packager": "arduino",
+              "version": "4.0.0-atmel"
+            }
+          ]
+        },
+        {
+          "boards": [
+            {
+              "name": "Firefly V2"
+            },
+            {
+              "name": "Firefly DevBoard"
+            }
+          ],
+          "architecture": "samd",
+          "name": "Firefly boards",
+          "category": "Firefly",
           "version": "0.0.3",
           "archiveFileName": "candykingdom-firefly-0.0.3.tar.gz",
           "checksum": "SHA-256:f1f1f418c58a15e8487ba7eeba5dcdf587355de49d291b1a9cd329b75491a330",

@@ -4,13 +4,16 @@ Follow these steps:
 
 - Set the new version number
 ```bash
-export VERSION=v0.0.4
+export VERSION=v0.0.5
 ```
 
-- Tag a release as the new version and make it a release on GitHub
+- Tag a release as the new version
 ```bash
 git tag ${VERSION?}
+git push origin ${VERSION?}
 ```
+
+- Make it [release on GitHub](https://github.com/candykingdom/firefly-v2-board/releases)
 
 - Download the newly-generated archive and get the size and sha256
 ```bash
