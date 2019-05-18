@@ -15,7 +15,7 @@ URLs` to:
 https://candykingdom.github.io/firefly-v2-board/package_candykingdom_index.json
 ```
 
-Install the `Arduino SAMD Boards` and `Candy Kingdom Firefly` board definitions
+Install the `Arduino SAMD Boards` and `Firefly` by CandyKingdom board definitions
 using the board manager.
 
 # Hardware format documentation
