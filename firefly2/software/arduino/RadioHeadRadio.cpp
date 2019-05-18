@@ -5,6 +5,7 @@
 RadioHeadRadio::RadioHeadRadio() {
   radio.init();
   radio.setTxPower(2, false);
+  radio.setFrequency(915.0);
   radio.available();
 }
 
@@ -50,4 +51,11 @@ void RadioHeadRadio::sendPacket(RadioPacket &packet) {
   }
 
   radio.send((uint8_t *)buffer, packet.dataLength + kFrontPacketPadding);
+
+  // Go back into RX mode
+  radio.available();
 }
+
+void RadioHeadRadio::sleep() { radio.sleep(); }
+
+int16_t RadioHeadRadio::LastRssi() { return radio.lastRssi(); }

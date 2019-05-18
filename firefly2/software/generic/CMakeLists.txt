@@ -14,15 +14,20 @@ add_subdirectory(${googletest_SOURCE_DIR} ${googletest_BINARY_DIR})
 # Set appropriate warning levels and include debug symbols.
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic -std=c++11 -g")
 
-file(GLOB LIBRARY_SOURCES "*.cpp")
+# Generate the file needed for YCM integration
+set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
+
+file(GLOB LIBRARY_SOURCES "*.cpp" "FakeFastLED/*.cpp")
 add_library(generic ${LIBRARY_SOURCES})
 target_include_directories(generic PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
-  $<INSTALL_INTERFACE:.>)
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/FakeFastLED>
+  $<INSTALL_INTERFACE:.>
+  $<INSTALL_INTERFACE:./FakeFastLED>)
 
 enable_testing()
 
-file(GLOB TEST_SOURCES "test/*.cpp")
+file(GLOB TEST_SOURCES "test/*.cpp" "test/*.hpp")
 
 add_executable(generictest ${TEST_SOURCES})
 

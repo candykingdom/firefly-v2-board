@@ -1,16 +1,18 @@
-#include <FastLED.h>
+// Arduino.h, automatically included by the IDE, defines min and max macros
+// (which it shouldn't)
+#undef max
+#undef min
+#include <FastLedManager.hpp>
 #include <NetworkManager.hpp>
 #include <RadioHeadRadio.hpp>
 #include <RadioStateMachine.hpp>
 
 const int kLedPin = 0;
-#define kNumLeds 4
-#define WS2812_PIN 6
-
-CRGB leds[kNumLeds];
+const int kNumLeds = 60;
 
 RadioHeadRadio* radio;
 NetworkManager* nm;
+FastLedManager* ledManager;
 RadioStateMachine* stateMachine;
 
 void setup() {
@@ -18,35 +20,23 @@ void setup() {
   // Delay makes it easier to reset the board in case of failure
   delay(2000);
 
-  FastLED.addLeds<NEOPIXEL, WS2812_PIN>(leds, kNumLeds);
   pinMode(kLedPin, OUTPUT);
 
-  // Yellow LED on boot indicates a problem initializing the radio
-  FastLED.showColor(CRGB(16, 16, 0));
   radio = new RadioHeadRadio();
   nm = new NetworkManager(radio);
   stateMachine = new RadioStateMachine(nm);
 
-  FastLED.showColor(CRGB(0, 0, 0));
+  ledManager = new FastLedManager(kNumLeds, stateMachine);
+  ledManager->SetGlobalColor(CHSV(HUE_YELLOW, 255, 128));
+  delay(10);
+  ledManager->SetGlobalColor(CRGB(CRGB::Black));
 }
-
-const int kBufLen = 10;
-char buf[kBufLen];
 
 unsigned long printAliveAt = 0;
 
 void loop() {
   stateMachine->Tick();
-
-  if (stateMachine->GetNetworkMillis() % 1000 < 300) {
-    FastLED.showColor(CRGB(32, 0, 0));
-  } else {
-    if (stateMachine->GetCurrentState() == RadioState::Master) {
-      FastLED.showColor(CRGB(0, 8, 0));
-    } else {
-      FastLED.showColor(CRGB(0, 0, 8));
-    }
-  }
+  ledManager->RunEffect();
 
   if (millis() > printAliveAt) {
     Serial.println(stateMachine->GetNetworkMillis());

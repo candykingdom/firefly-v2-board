@@ -16,9 +16,12 @@ class RadioHeadRadio : public Radio {
   // Overrides
   bool readPacket(RadioPacket &packet) override;
   void sendPacket(RadioPacket &packet) override;
+  void sleep() override;
+
+  int16_t LastRssi();
 
  private:
-  RH_RF69 radio = RH_RF69(4, 5);
+  RH_RF69 radio = RH_RF69(RADIO_SS, RADIO_DIO);
 };
 
 #endif
