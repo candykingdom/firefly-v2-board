@@ -44,13 +44,13 @@
           "name": "Firefly boards",
           "category": "Firefly",
           "version": "0.0.8",
-          "archiveFileName": "candykingdom-firefly-0.0.7.tar.gz",
-          "checksum": "SHA-256:d51b69f6fae18665913dd383bb68b9b24152a08a9bd3ea3094647dc9f3388bc3",
-          "size": "6024632",
+          "archiveFileName": "candykingdom-firefly-0.0.8.tar.gz",
+          "checksum": "SHA-256:85e2c4287bc4040f1a29a08cd5025740e59409ad732b6539caf55fbc7c6b4c0c",
+          "size": "11952071",
           "help": {
             "online": "https://dev.null"
           },
-          "url": "https://github.com/candykingdom/firefly-v2-board/archive/v0.0.7.tar.gz",
+          "url": "https://github.com/candykingdom/firefly-v2-board/archive/v0.0.8.tar.gz",
           "toolsDependencies": [
             {
               "name": "arm-none-eabi-gcc",
