@@ -2,6 +2,7 @@
 #define __EFFECT_HPP__
 
 #include <vector>
+#include "ColorPalette.hpp"
 #include "Radio.hpp"
 #include "Types.hpp"
 
@@ -13,29 +14,36 @@ class Effect {
   virtual CRGB GetRGB(uint8_t ledIndex, uint32_t timeMs,
                       RadioPacket *setEffectPacket) = 0;
 
-  const std::vector<CHSVPalette16> palettes = {
+  const std::vector<ColorPalette> palettes = {
       // Solid color
-      CHSVPalette16(CHSV(HUE_RED, 255, 255)),
-      CHSVPalette16(CHSV(HUE_ORANGE, 255, 255)),
-      CHSVPalette16(CHSV(HUE_YELLOW, 255, 255)),
-      CHSVPalette16(CHSV(HUE_GREEN, 255, 255)),
-      CHSVPalette16(CHSV(HUE_AQUA, 255, 255)),
-      CHSVPalette16(CHSV(HUE_BLUE, 255, 255)),
-      CHSVPalette16(CHSV(HUE_PURPLE, 255, 255)),
-      CHSVPalette16(CHSV(HUE_PINK, 255, 255)),
+      {{HUE_RED, 255, 255}},
+      {{HUE_ORANGE, 255, 255}},
+      {{HUE_YELLOW, 255, 255}},
+      {{HUE_GREEN, 255, 255}},
+      {{HUE_AQUA, 255, 255}},
+      {{HUE_BLUE, 255, 255}},
+      {{HUE_PURPLE, 255, 255}},
+      {{HUE_PINK, 255, 255}},
 
       // Rainbow
-      CHSVPalette16(CHSV(HUE_RED, 255, 255), CHSV(HUE_GREEN, 255, 255),
-                    CHSV(HUE_BLUE, 255, 255), CHSV(HUE_RED, 255, 255)),
+      {{HUE_RED, 255, 255}, {HUE_GREEN, 255, 255}, {HUE_BLUE, 255, 255}},
       // Warm
-      CHSVPalette16(CHSV(HUE_RED, 255, 255), CHSV(HUE_PURPLE, 255, 255),
-                    CHSV(HUE_RED, 255, 255)),
+      {{HUE_RED, 255, 255}, {HUE_PURPLE, 255, 255}},
       // Cool
-      CHSVPalette16(CHSV(HUE_GREEN, 255, 255), CHSV(HUE_BLUE, 255, 255),
-                    CHSV(HUE_GREEN, 255, 255)),
+      {{HUE_GREEN, 255, 255}, {HUE_BLUE, 255, 255}},
       // Yellow-green
-      CHSVPalette16(CHSV(HUE_YELLOW, 255, 255), CHSV(HUE_AQUA, 255, 255),
-                    CHSV(HUE_YELLOW, 255, 255)),
+      {{HUE_YELLOW, 255, 255}, {HUE_AQUA, 255, 255}},
+      // 80s Miami
+      {{HUE_PURPLE, 255, 255}, {HUE_ORANGE, 255, 255}},
+      // Vaporwave
+      // https://i.redd.it/aepphltiqy911.png
+      {{33, 241, 249}, {247, 188, 255}, {201, 225, 160}, {153, 251, 150}},
+      // Popo
+      {{HUE_RED, 255, 255}, {HUE_BLUE, 255, 255}},
+      // Candy-cane
+      {{HUE_RED, 255, 255}, {HUE_RED, 0, 255}},
+      // Winter-mint candy-cane
+      {{HUE_AQUA, 255, 255}, {HUE_AQUA, 0, 255}},
   };
 
  protected:

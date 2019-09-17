@@ -23,6 +23,15 @@ void runTicks(FakeNetwork &network, int ticks) {
   }
 }
 
+void resetMaster(FakeNetwork &network) {
+  for (int i = 0; i < FakeNetwork::kNumNodes; i++) {
+    if (network.stateMachines[0]->GetCurrentState() == RadioState::Master) {
+      network.reinitNode(i);
+      EXPECT_EQ(network.stateMachines[i]->GetCurrentState(), RadioState::Slave);
+    }
+  }
+}
+
 TEST(Network, electsOneMaster) {
   FakeNetwork network;
   network.Tick();
@@ -44,12 +53,7 @@ TEST(Network, relectsMasterIfMasterDisappears) {
   runTicks(network, RadioStateMachine::kSlaveNoPacketRandom + 10);
 
   EXPECT_EQ(getNumMasters(network), 1);
-  for (int i = 0; i < FakeNetwork::kNumNodes; i++) {
-    if (network.stateMachines[0]->GetCurrentState() == RadioState::Master) {
-      network.reinitNode(i);
-      EXPECT_EQ(network.stateMachines[i]->GetCurrentState(), RadioState::Slave);
-    }
-  }
+  resetMaster(network);
 
   runTicks(network, RadioStateMachine::kSlaveNoPacketTimeout +
                         RadioStateMachine::kSlaveNoPacketRandom + 10);
@@ -222,9 +226,25 @@ TEST(Network, setEffectIndex) {
   // Note: multiplier of 3 here is a magic number, so that the random SetEffect
   // is 1 (i.e. different from the default). Since we choose a fixed random
   // seed, this is stable.
-  runTicks(network, RadioStateMachine::kSetEffectInterval * 3);
+  runTicks(network, RadioStateMachine::kChangeEffectInterval * 3);
+  // All nodes should have the same, non-zero (i.e. default) effect index
+  uint8_t expectedEffectIndex = network.stateMachines[0]->GetEffectIndex();
+  EXPECT_NE(expectedEffectIndex, 1);
   for (int i = 0; i < FakeNetwork::kNumNodes; i++) {
-    EXPECT_EQ(network.stateMachines[i]->GetEffectIndex(), 1)
+    EXPECT_EQ(network.stateMachines[i]->GetEffectIndex(), expectedEffectIndex)
         << "Node " << i << " has wrong effect index";
   }
+}
+
+TEST(Network, changesEffectWhenMasterNotStable) {
+  FakeNetwork network;
+  runTicks(network, RadioStateMachine::kChangeEffectInterval - 10);
+
+  uint8_t originalEffect = network.stateMachines[0]->GetEffectIndex();
+
+  resetMaster(network);
+  runTicks(network, 100);
+
+  uint8_t newEffect = network.stateMachines[0]->GetEffectIndex();
+  EXPECT_NE(originalEffect, newEffect);
 }

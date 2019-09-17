@@ -31,5 +31,7 @@ class LedManager {
 
  private:
   std::vector<Effect *> effects;
+
+  void AddEffect(Effect *Effect, uint8_t proportion);
 };
 #endif
