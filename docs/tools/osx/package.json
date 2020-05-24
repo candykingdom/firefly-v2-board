@@ -1,0 +1,10 @@
+{
+    "description": "BOSSA CLI - Candy Kingdom variant with SAMD21G17 support",
+    "name": "tool-bossac-candykingdom",
+    "system": [
+        "darwin_x86_64",
+        "darwin_i386"
+    ],
+    "url": "https://github.com/mattairtech/BOSSA",
+    "version": "1.7.0"
+}

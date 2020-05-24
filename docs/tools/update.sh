@@ -2,16 +2,17 @@
 
 set -euo pipefail
 
-DIR=bossac-1.7.0
+cd linux
+tar -cvjSf ../bossac_linux.tar.bz2 *
+cd ..
+sha1sum bossac_linux.tar.bz2
 
-mkdir $DIR
-cp bossac_linux $DIR
-tar -cvjSf bossac_linux.tar.bz2 $DIR
-rm $DIR/bossac_linux
+cd osx
+tar -cvjSf ../bossac_osx.tar.bz2 *
+cd ..
+sha1sum bossac_osx.tar.bz2
 
-cp bossac_osx $DIR
-tar -cvjSf bossac_osx.tar.bz2 $DIR
-rm $DIR/bossac_osx
-
-rmdir $DIR
-
+cd windows
+tar -cvjSf ../bossac_windows.tar.bz2 *
+cd ..
+sha1sum bossac_windows.tar.bz2
