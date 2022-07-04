@@ -4,7 +4,7 @@ Follow these steps:
 
 - Set the new version number
 ```bash
-export VERSION=v0.0.9
+export VERSION=v0.0.10
 ```
 
 - Tag a release as the new version
